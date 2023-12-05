@@ -6,6 +6,6 @@ from .models import query
 
 @admin.register(query)
 class history(admin.ModelAdmin):
-    list_display = ('add_date')
+    list_display = ('query_text','add_date')
 
 
