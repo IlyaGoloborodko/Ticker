@@ -1,7 +1,7 @@
 from moviepy.editor import ImageClip, TextClip, CompositeVideoClip
 from wsgiref.util import FileWrapper
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -20,10 +20,11 @@ def ticker(request):
         #получаем текст из запроса
         text_tick = request.POST.get("text_tick")
 
-        #провереряем текст на заполненность и присваиваем ему пробел для корректности обработки
+        #провереряем текст на заполненность, иначе редирект
+        
         if len(text_tick) == 0:
-            text_tick = " "
-
+            return redirect(request.META.get('HTTP_REFERER'))
+            
         #заносим запрос в бд
         query_new = query(query_text=text_tick)
         query_new.save()
