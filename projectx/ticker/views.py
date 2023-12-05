@@ -3,6 +3,7 @@ from wsgiref.util import FileWrapper
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import query
 
@@ -11,6 +12,7 @@ from .models import query
 def index(request):
     return render(request, 'ticker/index.html')
 
+@csrf_exempt
 def ticker(request):
 
     if request.method == "POST":
