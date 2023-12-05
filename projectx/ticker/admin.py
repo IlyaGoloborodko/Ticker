@@ -3,4 +3,9 @@ from .models import query
 
 # Register your models here.
 
-admin.site.register(query)
+
+@admin.register(query)
+class history(admin.ModelAdmin):
+    list_display = ('add_date')
+
+

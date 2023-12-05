@@ -7,8 +7,8 @@ from django.utils import timezone
 
 #простая модель для истории запросов
 class query(models.Model):
-    query_text = models.TextField(max_length=100, null=True)
-    add_date = models.DateTimeField("date added", auto_now_add=True)
+    query_text = models.TextField(max_length=100, null=True, verbose_name='Текст запроса')
+    add_date = models.DateTimeField("date added", auto_now_add=True, verbose_name='Дата запроса')
     def __str__(self):
         return self.query_text
 
