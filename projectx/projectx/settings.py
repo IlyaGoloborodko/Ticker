@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-pskh-n1#23vc@g$mlskmcot3yo@zp@ky_2si7fo=6j36ix)%*#
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # Application definition
 
